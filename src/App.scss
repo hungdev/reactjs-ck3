@@ -1,0 +1,186 @@
+.page-link {
+  color: #666;
+  display: inline-block;
+  // min-width: 60px;
+  text-align: center;
+
+  &::after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #019fb6;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+    transform-origin: 100% 50%;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: 0% 50%;
+  }
+}
+
+.img-hero {
+  animation: introLoad 2s forwards;
+  background: url("./assets/images/hero-shoe.jpg");
+  background-position: 25%;
+  background-size: cover;
+  height: 33rem;
+  width: 50%;
+  margin-top: -10px;
+  z-index: -1;
+}
+
+.move-down {
+  animation: fade-in-move-down 0.7s;
+}
+
+@keyframes fade-in-move-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transform-center {
+  transform: translate(-50%, -50%);
+}
+
+.gradient-category {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+
+  &:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+  }
+}
+
+.feature-img {
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: right;
+  padding: 1rem 1.5rem;
+  color: white;
+  width: 100%;
+  height: 25rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
+    url("./assets/images/featured.jpg");
+  background-size: cover;
+  margin: 2.5rem 0;
+}
+
+// product
+
+.head {
+  position: fixed;
+  top: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  max-width: 1440px;
+  width: 95%;
+  padding: 1rem;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)),
+    url("./assets/images/products-image.jpg");
+  background-size: cover;
+
+  @media screen and (min-width: 920px) {
+    font-size: 4.5rem;
+  }
+}
+
+.product-container {
+  margin: 12.5rem 40px 0px;
+}
+
+// comment
+
+.wrap-write-review {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-comment {
+  border: 1px solid grey;
+  height: 50px;
+  width: 50%;
+  margin-top: 10px;
+}
+
+// 
+.item-number {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2FA5E9;
+  color: white;
+}
+
+.wrap-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.input-quantity {
+  width: 30px;
+  text-align: center;
+}
+
+// auth screen
+.auth-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .wrap-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .left {
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9)), url("./assets/images/shoe-head.jpg");
+    background-size: cover;
+    width: 50%;
+    background-position: 25%;
+    background-size: cover;
+    height: calc(100vh - 4rem);
+  }
+
+  .right {
+    width: 50%;
+  }
+
+  .eye-input {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+
+}
