@@ -7,6 +7,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { useLocation } from 'react-router-dom';
 import { FiLogOut } from "react-icons/fi";
 import { products } from '../fakeData';
 import Header from '../components/Header';
@@ -14,6 +15,11 @@ import Header from '../components/Header';
 const sizeList = [40, 41, 42, 43];
 
 function App() {
+  const location = useLocation();
+  console.log('location.state', location.state.name);
+  // useEffect(() => {
+  //   // call api với id từ location
+  // }, []);
   return (
     <div>
       {/* header */}

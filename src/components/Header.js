@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-  FaSearch,
-  FaUser,
-  FaHeart,
-  FaShoppingCart,
-  FaBars,
-  FaTimes,
+  BrowserRouter, Routes, Route, Link
+} from "react-router-dom";
+import {
+  FaSearch, FaUser, FaHeart, FaShoppingCart, FaBars, FaTimes,
 } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 
@@ -16,8 +14,12 @@ export default function Header() {
         <div className='flex flex-1 flex-row bg-white px-20 items-center h-full'>
           <div className='text-gray-300 text-4xl mr-auto cursor-pointer font-bold'>Cee</div>
           <div className='flex flex-row'>
-            <div className='page-link mr-10 cursor-pointer w-16'>Home</div>
-            <div className='page-link cursor-pointer w-20'>Product</div>
+            <Link to='/'>
+              <div className='page-link mr-10 cursor-pointer w-16'>Home</div>
+            </Link>
+            <Link to='/product'>
+              <div className='page-link cursor-pointer w-20'>Product</div>
+            </Link>
           </div>
         </div>
         <div className='flex w-1/2 h-full flex-row items-center justify-between'>

@@ -1,12 +1,7 @@
 import '../App.scss';
 import {
-  FaSearch,
-  FaUser,
-  FaHeart,
-  FaShoppingCart,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+  BrowserRouter, Routes, Route, Link
+} from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { categories } from '../fakeData';
 import Header from '../components/Header';
@@ -34,10 +29,12 @@ function App() {
           >
             <div className="gradient-category"></div>
             <img src={e.img} alt={e.title} className='h-full w-full object-cover' />
-            <div className='flex flex-col absolute top-1/2 left-1/2 transform-center'>
-              <div className=' text-center text-white text-3xl font-bold'>{e.title}</div>
-              <button className='bg-white p-2 round'>Shop Now</button>
-            </div>
+            <Link to='/product'>
+              <div className='flex flex-col absolute top-1/2 left-1/2 transform-center'>
+                <div className=' text-center text-white text-3xl font-bold'>{e.title}</div>
+                <button className='bg-white p-2 round'>Shop Now</button>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
