@@ -7,12 +7,28 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { products } from '../fakeData';
 import Heart from '../assets/Heart';
 import Header from '../components/Header';
+import { useEffect, useState } from 'react';
+import axios from 'axios'
+import {getImagePath} from '../utils'
 
 function App() {
+  const navigate = useNavigate();
+  const [productList, setProductList] = useState([])
+
+  useEffect(() => {
+    const callApi = async () => {
+      const result = await axios.get('http://localhost:3000/product')
+      console.log(result.data) 
+      setProductList(result.data)
+    }
+    callApi()
+  }, [])
+
   return (
     <div>
       {/* header */}
@@ -160,17 +176,19 @@ function App() {
 
           {/* item */}
           <div className='flex flex-wrap overflow-auto mt-4 -mr-10' style={{ height: 'calc(100vh - 16rem)' }}>
-            {products.map(e => (
+            {productList.map(e => {
+              return (
               <div className='mr-12 mb-12' style={{ width: 'calc(25% - 48px)' }}>
                 <div className="relative">
-                  <img src={e.img} alt={e.title} className='object-cover h-48 w-full' />
+                  {/* <img src={require(`../assets/images/${e.image}`)} alt={e.title} className='object-cover h-48 w-full' /> */}
+                  <img src={getImagePath(e.image)} alt={e.title} className='object-cover h-48 w-full' />
                   <div className="wrap-heart">
                     <Heart />
                   </div>
                 </div>
-                <div className='p-1'>
-                  <div className='font-bold'>{e.title}</div>
-                  <div>{e.details}</div>
+                <div className='p-1' onClick={() => navigate(`/detail/${e.id}`, { state: { name: 'ahihi' } })}>
+                  <div className='font-bold'>{e.name}</div>
+                  <div>{e.detail}</div>
                   <div>{e.rating}⭐</div>
                   <div>{e.price}$</div>
                 </div>
@@ -178,7 +196,7 @@ function App() {
                   Add to cart
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </div>
