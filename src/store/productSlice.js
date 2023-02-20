@@ -10,7 +10,7 @@ export const productSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       console.log("action", action.payload);
-      state.productList = [...state.productList, action.payload.id];
+      state.productList = [...state.productList, action.payload];
     },
     // removeTask: (state, action) => {
     //   console.log("action", action.payload);
