@@ -6,8 +6,11 @@ import {
   FaSearch, FaUser, FaHeart, FaShoppingCart, FaBars, FaTimes,
 } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Header() {
+  const productList = useSelector((state) => state.product.productList);
+
   return (
     <div>
       <div className='flex flex-row h-14 items-center fixed w-full top-0 z-50'>
@@ -33,7 +36,9 @@ export default function Header() {
           <div className='flex flex-row'>
             <FaUser className='text-2xl mr-10 text-gray-300' />
             <FaHeart className='text-2xl mr-10 text-gray-300' />
-            <FaShoppingCart className='text-2xl mr-10 text-gray-300' />
+            <Link to='/cart'>
+              <FaShoppingCart className='text-2xl mr-10 text-gray-300' />
+            </Link>
             <FiLogOut className='text-2xl mr-10 text-gray-300' />
           </div>
         </div>

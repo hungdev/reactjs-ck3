@@ -5,6 +5,7 @@ import {
 import Home from './screens/Home';
 import Product from './screens/Products';
 import Detail from './screens/Detail';
+import Cart from './screens/Cart';
 
 export default function Routers() {
   return (
@@ -13,9 +14,9 @@ export default function Routers() {
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<Product />} />
         <Route path="/detail/:id" element={<Detail />} />
-        {/* 
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/login" element={<Login />} />
+
+        <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path='*' element={<NotFound />} /> */}
       </Routes>

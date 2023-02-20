@@ -13,21 +13,28 @@ import { products } from '../fakeData';
 import Heart from '../assets/Heart';
 import Header from '../components/Header';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
-import {getImagePath} from '../utils'
+import { useSelector, useDispatch } from "react-redux";
+import axios from 'axios';
+import { getImagePath } from '../utils';
+import { addProduct } from '../store/productSlice';
 
 function App() {
   const navigate = useNavigate();
-  const [productList, setProductList] = useState([])
+  const dispatch = useDispatch();
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     const callApi = async () => {
-      const result = await axios.get('http://localhost:3000/product')
-      console.log(result.data) 
-      setProductList(result.data)
-    }
-    callApi()
-  }, [])
+      const result = await axios.get('http://localhost:3000/product');
+      console.log(result.data);
+      setProductList(result.data);
+    };
+    callApi();
+  }, []);
+
+  const onAddProduct = (product) => () => {
+    dispatch(addProduct(product));
+  };
 
   return (
     <div>
@@ -178,25 +185,26 @@ function App() {
           <div className='flex flex-wrap overflow-auto mt-4 -mr-10' style={{ height: 'calc(100vh - 16rem)' }}>
             {productList.map(e => {
               return (
-              <div className='mr-12 mb-12' style={{ width: 'calc(25% - 48px)' }}>
-                <div className="relative">
-                  {/* <img src={require(`../assets/images/${e.image}`)} alt={e.title} className='object-cover h-48 w-full' /> */}
-                  <img src={getImagePath(e.image)} alt={e.title} className='object-cover h-48 w-full' />
-                  <div className="wrap-heart">
-                    <Heart />
+                <div className='mr-12 mb-12' style={{ width: 'calc(25% - 48px)' }}>
+                  <div className="relative">
+                    {/* <img src={require(`../assets/images/${e.image}`)} alt={e.title} className='object-cover h-48 w-full' /> */}
+                    <img src={getImagePath(e.image)} alt={e.title} className='object-cover h-48 w-full' />
+                    <div className="wrap-heart">
+                      <Heart />
+                    </div>
+                  </div>
+                  <div className='p-1' onClick={() => navigate(`/detail/${e.id}`, { state: { name: 'ahihi' } })}>
+                    <div className='font-bold'>{e.name}</div>
+                    <div>{e.detail}</div>
+                    <div>{e.rating}⭐</div>
+                    <div>{e.price}$</div>
+                  </div>
+                  <div onClick={onAddProduct(e)} className='bg-gray-800 h-11 flex justify-center items-center uppercase font-medium text-white cursor-pointer'>
+                    Add to cart
                   </div>
                 </div>
-                <div className='p-1' onClick={() => navigate(`/detail/${e.id}`, { state: { name: 'ahihi' } })}>
-                  <div className='font-bold'>{e.name}</div>
-                  <div>{e.detail}</div>
-                  <div>{e.rating}⭐</div>
-                  <div>{e.price}$</div>
-                </div>
-                <div className='bg-gray-800 h-11 flex justify-center items-center uppercase font-medium text-white cursor-pointer'>
-                  Add to cart
-                </div>
-              </div>
-            )})}
+              );
+            })}
           </div>
         </div>
       </div>
