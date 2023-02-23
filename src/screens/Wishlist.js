@@ -29,7 +29,7 @@ function App() {
       <Header />
       {/* cart */}
       <div className='mt-16 px-16'>
-        <div className='text-4xl font-bold mb-4'>Items in Cart: 8</div>
+        <div className='text-4xl font-bold mb-4'>Items in Wishlist: 8</div>
 
         <div className='flex flex-row'>
           <div className='flex-1 mr-8'>

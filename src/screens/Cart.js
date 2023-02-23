@@ -12,7 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { products } from '../fakeData';
 import Header from '../components/Header';
 import { getImagePath } from '../utils';
-import { removeProduct } from '../store/productSlice';
+import { removeProduct, decreaseQuantity, increaseQuantity } from '../store/productSlice';
 
 const sizeList = [40, 41, 42, 43];
 
@@ -22,6 +22,14 @@ function App() {
 
   const onRemoveItem = (item) => () => {
     dispatch(removeProduct(item));
+  };
+
+  const onChangeQuantity = (type, item) => () => {
+    if (type === 'decrease') {
+      dispatch(decreaseQuantity(item));
+    } else {
+      dispatch(increaseQuantity(item));
+    }
   };
   return (
     <div>
@@ -54,9 +62,9 @@ function App() {
                       <div className='flex flex-row'>
                         <div className='mr-2'>Quantity</div>
                         <div className='flex flex-row'>
-                          <div className='h-6 w-6 bg-gray-200 flex justify-center items-center cursor-pointer'>-</div>
-                          <div className='h-6 w-6 bg-gray-300 flex justify-center items-center'>1</div>
-                          <div className='h-6 w-6 bg-gray-200 flex justify-center items-center cursor-pointer'>+</div>
+                          <div onClick={onChangeQuantity('decrease', item)} className='h-6 w-6 bg-gray-200 flex justify-center items-center cursor-pointer'>-</div>
+                          <div className='h-6 w-6 bg-gray-300 flex justify-center items-center'>{item?.quantity}</div>
+                          <div onClick={onChangeQuantity('increase', item)} className='h-6 w-6 bg-gray-200 flex justify-center items-center cursor-pointer'>+</div>
                         </div>
                       </div>
                     </div>

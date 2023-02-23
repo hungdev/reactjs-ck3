@@ -35,7 +35,9 @@ export default function Header() {
           </div>
           <div className='flex flex-row'>
             <FaUser className='text-2xl mr-10 text-gray-300' />
-            <FaHeart className='text-2xl mr-10 text-gray-300' />
+            <Link to='/wishlist'>
+              <FaHeart className='text-2xl mr-10 text-gray-300' />
+            </Link>
             <Link to='/cart'>
               <FaShoppingCart className='text-2xl mr-10 text-gray-300' />
             </Link>
