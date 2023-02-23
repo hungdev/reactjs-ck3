@@ -7,19 +7,40 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useParams } from 'react-router-dom';
 import { FiLogOut } from "react-icons/fi";
 import { products } from '../fakeData';
 import Header from '../components/Header';
+import { addProduct } from '../store/productSlice';
 
 const sizeList = [40, 41, 42, 43];
 
-function App() {
-  const location = useLocation();
-  console.log('location.state', location.state.name);
-  // useEffect(() => {
-  //   // call api với id từ location
-  // }, []);
+function App({ match }) {
+  const location = useParams();
+  const dispatch = useDispatch();
+  const [productItem, setProductItem] = useState([]);
+  const [size, setSize] = useState();
+
+  useEffect(() => {
+    const callApi = async () => {
+      const result = await axios.get(`http://localhost:3000/product/${location?.id}`);
+      console.log(result.data);
+      setProductItem(result.data);
+    };
+    callApi();
+  }, []);
+
+  const onSelectSize = (size) => () => {
+    setSize(size);
+  };
+
+  const onAddProduct = (product) => () => {
+    dispatch(addProduct({ ...product, quantity: 1, size: size }));
+  };
+
   return (
     <div>
       {/* header */}
@@ -45,14 +66,14 @@ function App() {
             </div>
             <div className='flex flex-row items-center'>
               <div className='mr-2'>Available sizes:</div>
-              {sizeList.map(e => (
-                <div className='mr-2 mt-2 flex px-4 h-11 justify-center items-center uppercase font-medium border border-gray-400 cursor-pointer'>
+              {productItem?.size?.map((e, idx) => (
+                <div onClick={onSelectSize(e)} key={idx} style={{ borderColor: e === size ? 'red' : 'grey' }} className={`mr-2 mt-2 flex px-4 h-11 justify-center items-center uppercase font-medium border border-gray-400 cursor-pointer`}>
                   {e}
                 </div>
               ))}
             </div>
             <div className='flex flex-row mt-4'>
-              <div className='w-1/2 bg-gray-800 h-11 flex justify-center items-center uppercase font-medium text-white cursor-pointer'>
+              <div onClick={onAddProduct(productItem)} className='w-1/2 bg-gray-800 h-11 flex justify-center items-center uppercase font-medium text-white cursor-pointer'>
                 Add to cart
               </div>
               <div className='ml-2 flex px-4 bg-gray-200 h-11 justify-center items-center uppercase font-medium text-white cursor-pointer'>

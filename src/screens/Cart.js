@@ -19,6 +19,7 @@ const sizeList = [40, 41, 42, 43];
 function App() {
   const dispatch = useDispatch();
   const listTaskStore = useSelector((state) => state.product.productList);
+  const totalPrice = listTaskStore.reduce((acc, item) => acc + item.price, 0);
 
   const onRemoveItem = (item) => () => {
     dispatch(removeProduct(item));
@@ -100,7 +101,7 @@ function App() {
             </div>
             <div className='flex justify-between font-bold mb-4 pl-2'>
               <div>Total Amount</div>
-              <div className=''>54876</div>
+              <div className=''>{totalPrice}$</div>
             </div>
             <div className='w-full bg-gray-800 h-14 flex justify-center items-center uppercase font-medium text-white cursor-pointer'>
               CHECKOUT

@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   const onAddProduct = (product) => () => {
-    dispatch(addProduct({ ...product, quantity: 1 }));
+    dispatch(addProduct({ ...product, quantity: 1, size: product.size?.[0] }));
   };
 
   return (
