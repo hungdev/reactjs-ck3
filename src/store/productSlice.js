@@ -12,6 +12,10 @@ export const productSlice = createSlice({
       console.log("action", action.payload);
       state.productList = [...state.productList, action.payload];
     },
+    removeProduct: (state, action) => {
+      console.log("action", action.payload); // {id:1, name: 'adidas',...}
+      state.productList = state.productList.filter(el => el.id !== action.payload.id);
+    },
     // removeTask: (state, action) => {
     //   console.log("action", action.payload);
     //   // do something here
@@ -19,6 +23,6 @@ export const productSlice = createSlice({
   }
 });
 
-export const { addProduct } = productSlice.actions;
+export const { addProduct, removeProduct } = productSlice.actions;
 
 export default productSlice.reducer;

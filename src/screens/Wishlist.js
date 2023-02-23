@@ -69,35 +69,8 @@ function App() {
               );
             })}
 
-
-
-
           </div>
 
-          <div className='w-72'>
-            <div className='text-2xl font-bold'>ORDER SUMMARY</div>
-            <div className='text-2xl font-bold'>(8 ITEMS)</div>
-
-            <div className='flex justify-between mb-4 pl-2 mt-4'>
-              <div>Subtotal</div>
-              <div>54876$</div>
-            </div>
-            <div className='flex justify-between mb-4 pl-2'>
-              <div>Discount</div>
-              <div className='text-green-500'>-0$</div>
-            </div>
-            <div className='flex justify-between mb-4 pl-2'>
-              <div>Delivery Charges</div>
-              <div className='text-green-500'>FREE</div>
-            </div>
-            <div className='flex justify-between font-bold mb-4 pl-2'>
-              <div>Total Amount</div>
-              <div className=''>54876</div>
-            </div>
-            <div className='w-full bg-gray-800 h-14 flex justify-center items-center uppercase font-medium text-white cursor-pointer'>
-              CHECKOUT
-            </div>
-          </div>
         </div>
       </div>
 
