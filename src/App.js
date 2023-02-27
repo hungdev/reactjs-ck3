@@ -8,10 +8,12 @@ import Routers from "./Routers";
 
 // import reducer
 import productReducer from "./store/productSlice";
+import wishListSlice from "./store/wishListSlice";
 
 export const store = configureStore({
   reducer: {
-    product: productReducer
+    product: productReducer,
+    wishList: wishListSlice
   }
 });
 
