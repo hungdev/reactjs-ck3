@@ -32,6 +32,9 @@ function App() {
       dispatch(increaseQuantity(item));
     }
   };
+
+
+  console.log('item', listTaskStore);
   return (
     <div>
       {/* header */}
@@ -57,7 +60,7 @@ function App() {
                       <div className="mr-10">
                         <label htmlFor="size">Size</label>
                         <select name="variant" id="variant" className="ml-2">
-                          {item?.size?.map(el => <option>{el}</option>)}
+                          {sizeList.map(el => <option>{el}</option>)}
                         </select>
                       </div>
                       <div className='flex flex-row'>
