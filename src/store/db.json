@@ -1,0 +1,70 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Nike",
+      "rate": 4,
+      "price": 500,
+      "description": "Sử dụng vải canvas NE phối hợp cùng da lộn, Vintas Mister phiên bản mới gia tăng thêm độ thoải mái khi lên chân, đồng thời vẫn nguyên vẹn diện mạo cổ điển đầy cuốn hút. Lựa chọn không thể bỏ qua đối với mọi tín đồ theo đuổi nét đẹp mang dấu ấn thời gian.ou know best: era-echoing, '80s construction, bold details and nothin'-but-net style.",
+      "size": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "image": "adidas1.webp"
+    },
+    {
+      "id": 2,
+      "name": "Nike",
+      "rate": 4,
+      "price": 200,
+      "description": "Sử dụng vải canvas NE phối hợp cùng da lộn, Vintas Mister phiên bản mới gia tăng thêm độ thoải mái khi lên chân, đồng thời vẫn nguyên vẹn diện mạo cổ điển đầy cuốn hút. Lựa chọn không thể bỏ qua đối với mọi tín đồ theo đuổi nét đẹp mang dấu ấn thời gian.ou know best: era-echoing, '80s construction, bold details and nothin'-but-net style.",
+      "size": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "image": "nike1.webp"
+    },
+    {
+      "id": 13,
+      "name": "Nike",
+      "rate": 4,
+      "price": 400,
+      "description": "Sử dụng vải canvas NE phối hợp cùng da lộn, Vintas Mister phiên bản mới gia tăng thêm độ thoải mái khi lên chân, đồng thời vẫn nguyên vẹn diện mạo cổ điển đầy cuốn hút. Lựa chọn không thể bỏ qua đối với mọi tín đồ theo đuổi nét đẹp mang dấu ấn thời gian.ou know best: era-echoing, '80s construction, bold details and nothin'-but-net style.",
+      "size": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "image": "nike2.webp"
+    },
+    {
+      "id": 4,
+      "name": "Nike",
+      "rate": 4,
+      "price": 800,
+      "description": "Sử dụng vải canvas NE phối hợp cùng da lộn, Vintas Mister phiên bản mới gia tăng thêm độ thoải mái khi lên chân, đồng thời vẫn nguyên vẹn diện mạo cổ điển đầy cuốn hút. Lựa chọn không thể bỏ qua đối với mọi tín đồ theo đuổi nét đẹp mang dấu ấn thời gian.ou know best: era-echoing, '80s construction, bold details and nothin'-but-net style.",
+      "size": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "image": "nike3.webp"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

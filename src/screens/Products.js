@@ -17,20 +17,30 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 import { getImagePath } from '../utils';
 import { addProduct } from '../store/productSlice';
+import { getProduct } from '../store/productThunkSlice';
 
 function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [productList, setProductList] = useState([]);
+  const productListData = useSelector(state => state.productThunk.productList);
 
+
+  // cách gọi redux thunk
   useEffect(() => {
-    const callApi = async () => {
-      const result = await axios.get('http://localhost:3000/product');
-      console.log(result.data);
-      setProductList(result.data);
-    };
-    callApi();
+    dispatch(getProduct());
   }, []);
+
+  // cách gọi cũ
+  // useEffect(() => {
+  //   const callApi = async () => {
+  //     const result = await axios.get('http://localhost:3000/product');
+  //     console.log(result.data);
+  //     setProductList(result.data);
+  //   };
+  //   callApi();
+  // }, []);
+
 
   const onAddProduct = (product) => () => {
     dispatch(addProduct({ ...product, quantity: 1, size: product.size?.[0] }));
@@ -183,7 +193,7 @@ function App() {
 
           {/* item */}
           <div className='flex flex-wrap overflow-auto mt-4 -mr-10' style={{ height: 'calc(100vh - 16rem)' }}>
-            {productList.map(e => {
+            {productListData.map(e => {
               return (
                 <div className='mr-12 mb-12' style={{ width: 'calc(25% - 48px)' }}>
                   <div className="relative">

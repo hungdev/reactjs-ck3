@@ -9,11 +9,13 @@ import Routers from "./Routers";
 // import reducer
 import productReducer from "./store/productSlice";
 import wishListSlice from "./store/wishListSlice";
+import productThunkSlice from "./store/productThunkSlice";
 
 export const store = configureStore({
   reducer: {
     product: productReducer,
-    wishList: wishListSlice
+    wishList: wishListSlice,
+    productThunk: productThunkSlice,
   }
 });
 
